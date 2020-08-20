@@ -1,0 +1,65 @@
+-------------CADASTRO DE PRODUTOS-------------
+products
+ id
+ store_id
+ type_id
+ name
+ description
+ body
+ slug
+ comments
+ price
+ scheduled
+ validity
+ status
+
+-------------IMAGENS DO PRODUTO-------------
+image_product
+ id
+ product_id
+ image
+
+-------------CATEGORIA-PRODUTO-------------
+category_product
+ category_id
+ product_id
+
+-------------PRODUTOS TIPOS-------------
+product_types
+ id
+ name
+ status
+
+-------------CATEGORIAS-------------
+categories
+ id
+ name
+ slug
+ status
+
+-------------CADASTRO DE CENTROS COMERCIAIS-------------
+comercial_centers
+ id
+ name
+ adress
+ number
+ city
+ complement
+ comments
+ slug
+ status
+
+-------------CADASTRO DE LOJAS-------------
+stores
+ id
+ comercial_center_id
+ name
+ description
+ adress
+ slug
+ comments
+ status
+ logo
+
+-------------CADASTRO DE USUÁRIOS-------------
+usuarios -> ok
