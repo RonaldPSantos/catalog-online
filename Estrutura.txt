@@ -4,14 +4,14 @@ products
  store_id
  type_id
  name
- description
- body
+ description - nullable
+ body - nullable
  slug
- comments
+ comments - nullable
  price
- scheduled
- validity
- status
+ scheduled - nullable
+ validity - nullable
+ status - booleam
 
 -------------IMAGENS DO PRODUTO-------------
 image_product
@@ -28,38 +28,39 @@ category_product
 product_types
  id
  name
- status
+ status - booleam
 
 -------------CATEGORIAS-------------
 categories
  id
  name
  slug
- status
+ status - booleam
 
 -------------CADASTRO DE CENTROS COMERCIAIS-------------
 comercial_centers
  id
  name
  adress
- number
+ number - nullable
  city
- complement
- comments
+ complement - nullable
+ comments - nullable
  slug
- status
+ status - booleam
 
 -------------CADASTRO DE LOJAS-------------
 stores
  id
  comercial_center_id
  name
- description
+ description - nullable
  adress
  slug
- comments
- status
- logo
+ comments - nullable
+ scheduled - nullable
+ status - booleam
+ logo - nullable
 
 -------------CADASTRO DE USUÁRIOS-------------
 usuarios -> ok
