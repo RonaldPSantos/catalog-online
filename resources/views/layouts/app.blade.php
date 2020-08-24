@@ -22,7 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -59,6 +59,9 @@
                                         {{ __('Cursos') }}
                                     </a>
                                 @endcan
+                                    <a class="dropdown-item" href="{{ route('admin.categories.index') }}">
+                                        {{ __('Categorias') }}
+                                    </a>
                             </div>
                         </li>
                     </ul>
@@ -102,16 +105,16 @@
         </nav>
         {{-- <main class="py-4"></main> --}}
         <div class="container">
-            @include('flash::message') 
+            @include('flash::message')
             @yield('content')
         </div>
     </div>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    
+
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    
+
     @yield('scripts')
 </body>
 
