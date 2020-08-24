@@ -28,7 +28,7 @@ class CategoriesController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($category) {
 
-                    $action = '<a href="' . route('admin.catagories.edit', ['category' => $category->id]) . '" class="btn btn-success" id="edit-category" data-id=' . $category->id . '>EDITAR </a>';
+                    $action = '<a href="' . route('admin.categories.edit', ['category' => $category->id]) . '" class="btn btn-success" id="edit-category" data-id=' . $category->id . '>EDITAR </a>';
                     $action .= '<meta name="csrf-token" content="{{ csrf_token() }}">';
                     $action .= '<a id="delete-category" data-id=' . $category->id . ' class="btn btn-danger delete-category">REMOVER</a>';
 
@@ -59,7 +59,11 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+
+        $this->category->create($data);
+
+        flash('Categoria cadastrada com sucesso');
+        return view('admin.categories.index');
     }
 
     /**
@@ -76,33 +80,39 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($category)
     {
-        //
+        $category = $this->category->findOrFail($category);
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $category)
     {
-        //
+        $data = $request->all();
+        $category = $this->category->find($category);
+        $category->update($data);
+
+        flash('Categoria atualizada com sucesso');
+        return view('admin.categories.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($category)
     {
         //
     }
